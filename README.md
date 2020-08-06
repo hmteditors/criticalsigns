@@ -8,7 +8,7 @@ Dindorf summarized the most important manuscript sources in the introduction to 
 - (Greek material published by Ossan formerly in the Collegio Romano)
 - (material included in two MSS of Hephaestion, Ἐγχειρίδιον περὶ μέτρων, in Bodleian and in Venice)
 - Harley codex 5693: citable images available on HMT web site
-- Paris 7530: gramatical treatise attributed to Suetonius
+- Paris 7530: grammatical treatise attributed to Suetonius
 - Aristonicus, *On Signs*: fragment on folio 8 of the Venetus A (Marciana 454 = 822).
 
 
