@@ -1,0 +1,18 @@
+// This is the declaration of a CITE collection of text-bearing surfaces.
+// We concatenate data from the codices-data directory with this.
+
+#!datamodels
+Collection#Model#Label#Description
+urn:cite2:hmt:msA.v1:#urn:cite2:cite:datamodels.v1:tbsmodel#Model of Venetus A codex#The Venetus A manuscript in the CITE model of a sequence of text-bearing surfaces
+
+#!citecollections
+URN#Description#Labelling property#Ordering property#License
+urn:cite2:hmt:msA.v1:#Venetus A manuscript#urn:cite2:hmt:msA.v1.label:#urn:cite2:hmt:msA.v1.sequence:#CC-attribution-share-alike
+
+#!citeproperties
+Property#Label#Type#Authority list
+urn:cite2:hmt:msA.v1.sequence:#Page sequence#Number#
+urn:cite2:hmt:msA.v1.urn:#URN#Cite2Urn#
+urn:cite2:hmt:msA.v1.rv:#Recto or Verso#String#recto,verso
+urn:cite2:hmt:msA.v1.label:#Label#String#
+urn:cite2:hmt:msA.v1.image:#TBS image#Cite2Urn#
