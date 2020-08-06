@@ -10,3 +10,6 @@ Dindorf summarized the most important manuscript sources in the introduction to 
 - Harley codex 5693: citable images available on HMT web site
 - Paris 7530: gramatical treatise attributed to Suetonius
 - Aristonicus, *On Signs*: fragment on folio 8 of the Venetus A (Marciana 454 = 822).
+
+
+For working notes, see [the project wiki](https://github.com/hmteditors/criticalsigns/wiki).
