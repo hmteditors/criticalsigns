@@ -1,1 +1,27 @@
 <!-- Add TEI skeleton -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>On Signs</title>
+        <author>Aristonicus</author>
+
+        <editor>Graeme Bird</editor>
+        <editor>Sophia Sarro</editor>
+        <editor>Neel Smith</editor>
+      </titleStmt>
+      <publicationStmt>
+        <p>Part of the Homer Multitext project archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Edited directly from manuscript images.</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <p n="1"></p>
+    </body>
+  </text>
+</TEI>
