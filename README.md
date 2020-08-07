@@ -14,4 +14,4 @@ Dindorf summarized the most important manuscript sources in the introduction to 
 
 ## Working notes
 
-For working notes and refernces, see [the project wiki](https://github.com/hmteditors/criticalsigns/wiki).
+For working notes and references, see [the project wiki](https://github.com/hmteditors/criticalsigns/wiki).
