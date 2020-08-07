@@ -12,4 +12,6 @@ Dindorf summarized the most important manuscript sources in the introduction to 
 - Aristonicus, *On Signs*: fragment on folio 8 of the Venetus A (Marciana 454 = 822). See [citable image](http://www.homermultitext.org/ict2/?urn=urn:cite2:hmt:vaimg.2017a:VA008RN_0009).
 
 
-For working notes, see [the project wiki](https://github.com/hmteditors/criticalsigns/wiki).
+## Working notes
+
+For working notes and refernces, see [the project wiki](https://github.com/hmteditors/criticalsigns/wiki).
