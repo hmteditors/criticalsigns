@@ -6,10 +6,12 @@ Dindorf summarized the most important manuscript sources in the introduction to 
 
 
 
-- (Greek material published by Ossan formerly in the Collegio Romano)
-- Material included in two MSS of Hephaestion, Ἐγχειρίδιον περὶ μέτρων, in Bodleian and in Venice.  The Bodleian MS is not digitized:  see cataloging and other information under the new shelfmark [MS. Auct. T. 4. 9](https://medieval.bodleian.ox.ac.uk/catalog/manuscript_829)
+- (Greek MS material formerly in the Collegio Romano published by Ossan; pdf of his *Anecdotum romanum de notis veterum criticis* is availabe from Google books [link TBA] )
+- Material included in two MSS of Hephaestion, Ἐγχειρίδιον περὶ μέτρων, in Bodleian and in Venice.  
+    1. The Bodleian MS is not digitized:  see cataloging and other information under the new shelfmark [MS. Auct. T. 4. 9](https://medieval.bodleian.ox.ac.uk/catalog/manuscript_829).  The relevant section is on folio 32.b.
+    2. The Venice MS is not digitized.
 - Harley codex 5693: citable images available on HMT web site.  List in [table of contents](http://www.homermultitext.org/ict2/?urn=urn:cite2:citebl:harley5693imgs.v1:f001v@0.2513,0.3830,0.4912,0.02456).  Text on [folio 2 recto](http://www.homermultitext.org/ict2/?urn=urn:cite2:citebl:harley5693imgs.v1:f002r).
-- Paris 7530: grammatical treatise attributed to Suetonius.  urn:cite2:citegallica:bnflat7530imgs.v1:bnf_lat_7530_img474
+- Paris 7530: grammatical treatise attributed to Suetonius, with material beginning on [folio 28r](http://www.homermultitext.org/ict2/?urn=urn:cite2:citegallica:bnflat7530imgs.v1:bnf_lat_7530_img71).
 - Aristonicus, *On Signs*: fragment on folio 8 of the Venetus A (Marciana 454 = 822). See [citable image](http://www.homermultitext.org/ict2/?urn=urn:cite2:hmt:vaimg.2017a:VA008RN_0009).
 
 
