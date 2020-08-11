@@ -21,7 +21,31 @@
 
   <text>
     <body>
-      <p n="1"></p>
+      <ab n="1"><gap/> ἦ τὸ <q>ἔφη</q>.</ab>
+      <ab n="2">ὁ δὲ τοῦτο μὴ νοήσας ἀλλα λαβὼν πάλιν τὸ <q>φη</q> ἀντὶ τοῦ <q>ως</q> ὑπέταξεν ἐκ περισσοῦ~</ab>
+      <ab n="3">
+        <cit>
+        <q>πέφραδέ τε <rs type="ethnic" n="urn:cite2:hmt:place.v1:place6">τρώεσσι</rs> καὶ εὐχόμενος ἔπος ηύδα</q>
+        <ref>urn:cts:greekLit:tlg0012.tlg001:14.500</ref>
+        </cit>
+      </ab>
+      <ab n="4">σημειοῦται δὲ πρὸς τὸν αὐτὸν ἀπεριστίκτωι διπλῆι τὰς ὁμωνυμίας ἁπάσας.</ab>
+      <ab n="5">ὅτι οὐ νοησας τὸ τοιοῦτον ἔγραψεν ὁτὲ μὲν <rs type="name" n="urn:cite2:hmt:pers.v1:pers161">πυλαιμένεα</rs>ὁτὲ δὲ <rs type="name" n="urn:cite2:hmt:pers.v1:pers161">κυλαιμένεα</rs>. </ab>
+      <ab n="6"></ab>
+      <ab n="7"></ab>
+      <ab n="8"></ab>
+      <ab n="9"></ab>
+      <ab n="10"></ab>
+      <ab n="11"></ab>
+      <ab n="12"></ab>
+      <ab n="13"></ab>
+      <ab n="14"></ab>
+      <ab n="15"></ab>
+      <ab n="16"></ab>
+      <ab n="17"></ab>
+      <ab n="18"></ab>
+      <ab n="19"></ab>
+      <ab n="20"></ab>
     </body>
   </text>
 </TEI>
