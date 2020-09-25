@@ -2,11 +2,11 @@
 
 This repository hosts work editing MS texts documenting ancient critical signs.
 
-Dindorf summarized the most important manuscript sources in the introduction to his edition of the *scholia* to the *Iliad* in the Venetus A manuscript  (section II, "Excerpta de signis criticis," pp. xlii-l). In the same publicaiton, he edited the Venetus A fragment of Aristonicus (pp. 1-2).  Since Dindorf's publicaiotn, some of the manuscripts have been recataloged; others have digitized.  We list their availability in 2020:
+Dindorf summarized the most important manuscript sources in the introduction to his edition of the *scholia* to the *Iliad* in the Venetus A manuscript  (section II, "Excerpta de signis criticis," pp. xlii-l). In the same publicaiton, he edited the Venetus A fragment of Aristonicus (pp. 1-2).  Since Dindorf's publication, some of the manuscripts have been recataloged; others have digitized.  We list their availability in 2020:
 
 
 
-- (Greek MS material formerly in the Collegio Romano published by Ossan; pdf of his *Anecdotum romanum de notis veterum criticis* is availabe from Google books [link TBA] )
+- (Greek MS material formerly in the Collegio Romano published by Ossan; pdf of his *Anecdotum romanum de notis veterum criticis* is available from Google books [link TBA] )
 - Material included in two MSS of Hephaestion, Ἐγχειρίδιον περὶ μέτρων, in Bodleian and in Venice.  
     1. The Bodleian MS is not digitized:  see cataloging and other information under the new shelfmark [MS. Auct. T. 4. 9](https://medieval.bodleian.ox.ac.uk/catalog/manuscript_829).  The relevant section is on folio 32.b.
     2. The Venice MS is not digitized.
