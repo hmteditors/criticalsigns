@@ -1,2 +1,2 @@
-Text URN|Format|Document|Namespace mapping|Citation model
-urn:cts:hmt:aristonicus.signs.msA:|xml|aristonicus.xml|tei->http://www.tei-c.org/ns/1.0|/tei:TEI/tei:text/tei:body/tei:p[@n = '?']
+urn|file|converter
+urn:cts:hmt:aristonicus.signs.msA:|aristonicus.xml|simpleAbReader
