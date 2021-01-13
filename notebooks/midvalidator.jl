@@ -404,9 +404,9 @@ Delete when updating version of <code>EditorsRepo</code></i>.
 # ╟─09e397b2-5397-11eb-0b66-1f5d1966ba9d
 # ╟─5f722eda-55c4-11eb-09f6-db15e1b43cc1
 # ╟─6c6514a4-55c4-11eb-2477-df16e584a994
-# ╠═87a8daf4-5397-11eb-17cc-d9da3cc3acfa
+# ╟─87a8daf4-5397-11eb-17cc-d9da3cc3acfa
 # ╟─88b55824-503f-11eb-101f-a12e4725f738
-# ╟─46213fee-50fa-11eb-3a43-6b8a464b8043
+# ╠═46213fee-50fa-11eb-3a43-6b8a464b8043
 # ╟─527f86ea-4d0f-11eb-1440-293fc241c198
 # ╟─8df925ee-5040-11eb-0e16-291bc3f0f23d
 # ╟─db26554c-5029-11eb-0627-cf019fae0e9b
@@ -419,7 +419,7 @@ Delete when updating version of <code>EditorsRepo</code></i>.
 # ╟─66385382-53dc-11eb-25da-cd1777daba5f
 # ╟─b1f35860-55c3-11eb-036d-7bdb8984973c
 # ╟─e3d9580c-55c3-11eb-3adb-4b4d436c33df
-# ╠═a65cdab0-53e0-11eb-120f-f16fae76e54f
+# ╟─a65cdab0-53e0-11eb-120f-f16fae76e54f
 # ╟─e2c40ec2-539c-11eb-1d17-39d16591d367
 # ╟─7d83b94a-5392-11eb-0dd0-fb894692e19d
 # ╟─8988790a-537a-11eb-1acb-ef423c2b6096
