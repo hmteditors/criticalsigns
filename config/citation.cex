@@ -1,2 +1,2 @@
-urn|file|converter
-urn:cts:hmt:aristonicus.signs.msA:|aristonicus.xml|simpleAbReader
+urn|file|converter|diplomatic|normalized|orthography
+urn:cts:hmt:aristonicus.signs.msA:|aristonicus.xml|simpleAbReader|LiteralTextBuilder("Literal text builder","rawtext")|LiteralTextBuilder("Literal text builder","rawtext")|GenericOrthography

@@ -1,6 +1,5 @@
-project = "Texts on critical signs"
-
 name = "MID validator notebook"
+project = "Texts on critical signs"
 version = "0.2.0"
 
 [deps]
