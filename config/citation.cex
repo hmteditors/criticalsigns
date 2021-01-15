@@ -1,3 +1,5 @@
 urn|file|converter|diplomatic|normalized|orthography
 urn:cts:hmt:aristonicus.signs.msA:|aristonicus.xml|simpleAbReader|LiteralTextBuilder("Literal text builder","rawtext")|LiteralTextBuilder("Literal text builder","rawtext")|GenericOrthography
 urn:cts:hmt:harley5693.signs.hmt:|harley5693.xml|simpleAbReader|LiteralTextBuilder("Literal text builder","rawtext")|LiteralTextBuilder("Literal text builder","rawtext")|GenericOrthography
+urn:cts:hmt:suetonius.virill.hmt:|bnflat7530.xml|simpleAbReader|LiteralTextBuilder("Literal text builder","rawtext")|LiteralTextBuilder("Literal text builder","rawtext")|GenericOrthography
+
