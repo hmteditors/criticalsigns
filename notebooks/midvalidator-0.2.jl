@@ -153,6 +153,7 @@ Subdirectories in the repository:
 """
 
 # ╔═╡ 2fdc8988-5736-11eb-262d-9b8d44c2e2cc
+# Read catalog.cex into a DataFrame
 catalogedtexts = begin
 	loadem
 	fromfile(CatalogedText, reporoot * "/" * configdir * "/catalog.cex")
@@ -279,6 +280,7 @@ md"Menu choices for popup menu of all unique surface URNs:"
 
 # ╔═╡ 356f7236-573c-11eb-18b5-2f5a6bfc545d
 surfacemenu = begin 
+	loadem
 	surfurns = EditorsRepo.surfaces(editorsrepo)
 	surflist = map(u -> u.urn, surfurns)
 	# Add a blank entry so popup menu can come up without a selection
@@ -463,7 +465,7 @@ end
 # ╟─100a1942-573c-11eb-211e-371998789bfa
 # ╟─175f2e58-573c-11eb-3a36-f3142c341d93
 # ╟─43f724c6-573b-11eb-28d6-f9ec8adebb8a
-# ╟─2fdc8988-5736-11eb-262d-9b8d44c2e2cc
+# ╠═2fdc8988-5736-11eb-262d-9b8d44c2e2cc
 # ╟─4fa5738a-5737-11eb-0e78-0155bfc12112
 # ╟─0cabc908-5737-11eb-2ef9-d51aedfbbe5f
 # ╟─6876c1d6-5749-11eb-39fe-29ef948bec69
