@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.18
+# v0.12.20
 
 using Markdown
 using InteractiveUtils
@@ -14,6 +14,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 0589b23a-5736-11eb-2cb7-8b122e101c35
+# build environment
 begin
 	import Pkg
 	Pkg.activate(".")
@@ -23,14 +24,15 @@ begin
 	Pkg.add("CitableImage")
 	Pkg.add("CitableTeiReaders")
 	Pkg.add("CSV")
-	Pkg.add("HTTP")
 	Pkg.add("DataFrames")
-	Pkg.add("EditorsRepo")
-	Pkg.add("Orthography")
 	Pkg.add("EditionBuilders")
+	Pkg.add("EditorsRepo")
+	Pkg.add("HTTP")
+	Pkg.add("Lycian")
+	Pkg.add("Markdown")
+	Pkg.add("Orthography")
 	
 
-	
 	using PlutoUI
 	using CitableText
 	using CitableObject
@@ -38,13 +40,16 @@ begin
 	using CitableTeiReaders
 	using CSV
 	using DataFrames
-	using HTTP
-	using EditorsRepo
-	using Orthography	
-	using Markdown
-	
 	using EditionBuilders
-
+	using EditorsRepo
+	using HTTP
+	using Lycian
+	using Markdown
+	using Orthography
+	
+	
+	Pkg.add(url="https://github.com/neelsmith/PolytonicGreek.jl")
+	using PolytonicGreek
 
 end
 
@@ -52,7 +57,7 @@ end
 @bind loadem Button("Load/reload data")
 
 # ╔═╡ 6b4decf8-573b-11eb-3ef3-0196c9bb5b4b
-md"**CTS URNs of all cataloged texts**"
+md"**CTS URNs of all texts cataloged as online**"
 
 # ╔═╡ 4010cf78-573c-11eb-03cf-b7dd1ae23b60
 md"**CITE2 URNS of all indexed surfaces**"
@@ -64,8 +69,34 @@ md"""
 
 """
 
+# ╔═╡ 66454380-5bf7-11eb-2634-85d4b4b10243
+md"""
+
+### Verify *completeness* of indexing
+
+
+*Check completeness of indexing by following linked thumb to overlay view in the Image Citation Tool*
+"""
+
+# ╔═╡ b5951d46-5c1c-11eb-2af9-116000308410
+md"*Height of thumbnail image*: $(@bind thumbht Slider(150:500, show_value=true))"
+
+
+# ╔═╡ 77acba86-5bf7-11eb-21ac-bb1d76532e04
+md"""
+### Verify *accuracy* of indexing
+
+*Check that diplomatic text and indexed image correspond.*
+
+
+"""
+
 # ╔═╡ f1f5643c-573d-11eb-1fd1-99c111eb523f
-md"Maximum width of image: $(@bind w Slider(200:1200, show_value=true))"
+md"""
+*Maximum width of image*: $(@bind w Slider(200:1200, show_value=true))
+
+---
+"""
 
 
 # ╔═╡ 13e8b16c-574c-11eb-13a6-61c5f05dfca2
@@ -163,7 +194,8 @@ Subdirectories in the repository:
 # ╔═╡ 2fdc8988-5736-11eb-262d-9b8d44c2e2cc
 catalogedtexts = begin
 	loadem
-	fromfile(CatalogedText, reporoot * "/" * configdir * "/catalog.cex")
+	allcataloged = fromfile(CatalogedText, reporoot * "/" * configdir * "/catalog.cex")
+	filter(row -> row.online, allcataloged)
 end
 
 # ╔═╡ 0bd05af4-573b-11eb-1b90-31d469940e5b
@@ -176,19 +208,43 @@ md"This is the `EditingRepository` built from these settings:"
 editorsrepo = EditingRepository(reporoot, editions, dsedir, configdir)
 
 # ╔═╡ 547c4ffa-574b-11eb-3b6e-69fa417421fc
-uniquesurfaces = EditorsRepo.surfaces(editorsrepo)
+uniquesurfaces = begin
+	loadem
+	try
+		EditorsRepo.surfaces(editorsrepo)
+	catch e
+		msg = """<div class='danger'><h2>🧨🧨 Configuration error 🧨🧨</h2>
+		<p><b>$(e)</b></p></div>
+		"""
+		HTML(msg)
+	end
+end
 
 # ╔═╡ 2a84a042-5739-11eb-13f1-1d881f215521
 diplomaticpassages = begin
-	#diplomaticnodes(editorsrepo, urnlist[1])
-	diplomaticarrays = map(u -> diplomaticnodes(editorsrepo, u), urnlist)
-	reduce(vcat, diplomaticarrays)
+	loadem
+	try 
+		diplomaticarrays = map(u -> diplomaticnodes(editorsrepo, u), urnlist)
+		singlearray = reduce(vcat, diplomaticarrays)
+		filter(psg -> psg !== nothing, singlearray)
+	catch e
+		msg = "<div class='danger'><h1>🧨🧨 Markup error 🧨🧨</h1><p><b>$(e)</b></p></div>"
+		HTML(msg)
+	end
 end
 
 # ╔═╡ 9974fadc-573a-11eb-10c4-13c589f5810b
 normalizedpassages =  begin
-	normalizedarrays = map(u -> normalizednodes(editorsrepo, u), urnlist)
-	reduce(vcat, normalizedarrays)
+	loadem
+	try 
+		normalizedarrays = map(u -> normalizednodes(editorsrepo, u), urnlist)
+		onearray = reduce(vcat, normalizedarrays)
+		filter(psg -> psg !== nothing, onearray)
+	catch e
+		msg = "<div class='danger'><h1>🧨🧨 Markup error 🧨🧨</h1><p><b>$(e)</b></p></div>"
+		
+		HTML(msg)
+	end
 end
 
 # ╔═╡ 175f2e58-573c-11eb-3a36-f3142c341d93
@@ -270,7 +326,7 @@ css = html"""
    font-style: normal;
 	  }
 .warn {
-     background-color: 	#ffdd00;
+     background-color: 	#ffeeab;
      border-left: solid 4px  black;
      line-height: 18px;
      overflow: hidden;
@@ -334,11 +390,12 @@ function diplnode(urn)
 	else 
 		""
 	end
-	#"Found stuffs " * le
 end
 
 # ╔═╡ bf77d456-573d-11eb-05b6-e51fd2be98fe
-function mdForRow(row::DataFrameRow)
+# Compose markdown for one row of display interleaving citable
+# text passage and indexed image.
+function mdForDseRow(row::DataFrameRow)
 	citation = "**" * passagecomponent(row.passage)  * "** "
 
 	
@@ -358,6 +415,17 @@ $(img)
 end
 
 
+# ╔═╡ 4a129b20-5e80-11eb-0b5c-b915b2919db8
+# Select a node from list of diplomatic nodes
+function normednode(urn)
+	filtered = filter(cn -> dropversion(cn.urn) == dropversion(urn), normalizedpassages)
+	if length(filtered) > 0
+		filtered[1].text
+	else 
+		""
+	end
+end
+
 # ╔═╡ bec00462-596a-11eb-1694-076c78f2ba95
 # Compose HTML reporting on status of text cataloging
 function catalogcheck()
@@ -365,7 +433,7 @@ function catalogcheck()
 		md"> Summary of cataloged content"
 	else
 		
-		missingcats = catalogony(catalogedtexts, textconfig) #catalogonly()
+		missingcats = catalogonly(catalogedtexts, textconfig) #catalogonly()
 		catitems = map(c -> "<li>" * c.urn * "</li>", missingcats)
 		catlist = "<p>In catalog, but not <code>citation.cex</code>:</p><ul>" * join(catitems,"\n") * "</ul>"
 		cathtml = isempty(catitems) ? "" : catlist
@@ -421,6 +489,71 @@ begin
 	fileinventory()
 end
 
+# ╔═╡ 9fcf6ece-5a89-11eb-2f2a-9d03a433c597
+# Organize this better so it can be used from EditorsRepo
+#
+# Compose HTML report on bad configuration
+function configerrors()
+	repo = editorsrepo
+	arr = CSV.File(repo.root * "/" * repo.configs * "/citation.cex", skipto=2, delim="|", 
+	quotechar='&', escapechar='&') |> Array
+	urns = map(row -> CtsUrn(row[1]), arr)
+	files = map(row -> row[2], arr)
+	ohco2s = map(row -> row[3], arr)
+	dipls = map(row -> row[4], arr)
+	norms = map(row -> row[5], arr)
+	orthos = map(row -> row[6], arr)
+	df = DataFrame(urn = urns, file = files, 
+	o2converter = ohco2s, diplomatic = dipls,
+	normalized = norms, orthography = orthos)
+	missinglist = []
+	nrows, ncols = size(df)
+	
+	
+	for row in 1:nrows
+		for prop in [:o2converter, :normalized, :diplomatic, :orthography]
+			propvalue = df[row, prop]
+			try 
+				eval(Meta.parse(propvalue))
+			catch e
+				push!(missinglist, "<li><i><b>$(df[row,:urn].urn)</b></i> has bad value for <i>$(prop)</i>:   <span class='highlight'><i>$(propvalue)</i></span></li>" )
+			end
+		end
+				
+  	end
+
+	if isempty(missinglist)
+		""
+	else
+		"<div class='danger'><h2>🧨🧨 Configuration error  🧨🧨</h2><ul>" *
+		join(missinglist, "\n") * "</ul></h2>"
+
+	end
+end
+
+
+# ╔═╡ 5eb46332-5a8d-11eb-1bcd-41741622e15b
+# DISPLAY ERRORS IN CONFIGURARTION FILE
+begin
+	loadem
+	try 
+		errorreport = configerrors()
+		if isempty(errorreport)
+			md""
+		else
+			msg = "<div class='danger'><h1>🧨🧨 Configuration error 🧨🧨</h1><p>" * 
+			errorreport * "</p></div>"
+			HTML(msg)
+		end
+	catch e
+		msg = "<div class='danger'><h1>🧨🧨 Configuration error 🧨🧨</h1><p><b>$(e)</b></p></div>"
+		HTML(msg)
+	end
+	
+	
+
+end
+
 # ╔═╡ 9ac99da0-573c-11eb-080a-aba995c3fbbf
 md"""
 
@@ -441,8 +574,8 @@ surfacemenu = begin
 end
 
 # ╔═╡ e08d5418-573b-11eb-2375-35a717b36a30
-md"""
-*Choose a surface to verify*: 
+md"""###  Choose a surface to verify
+
 $(@bind surface Select(surfacemenu))
 """
 
@@ -492,11 +625,18 @@ begin
 	if surface == ""
 		md""
 	else
-		cellout = []
-		for r in eachrow(surfaceDse)
-			push!(cellout, mdForRow(r))
+
+			cellout = []
+		try
+			for r in eachrow(surfaceDse)
+				push!(cellout, mdForDseRow(r))
+			end
+			Markdown.parse(join(cellout,"\n"))
+		catch e
+			html"<p class='danger'>Problem with XML edition: see message below</p>"
 		end
-		Markdown.parse(join(cellout,"\n"))
+			
+	
 	end
 end
 
@@ -508,6 +648,36 @@ begin
 		md"*Verifying orthography of **$(nrow(surfaceDse))** citable text passages for $(objectcomponent(surfurn) )*"
 	end
 end
+
+# ╔═╡ b0a23a54-5bf8-11eb-07dc-eba00196b4f7
+# Compose markdown for thumbnail images linked to ICT with overlay of all
+# DSE regions.
+function completenessView()
+	# Group images witt ROI into a dictionary keyed by image
+	# WITHOUT RoI.
+	grouped = Dict()
+	for row in eachrow(surfaceDse)
+		trimmed = CitableObject.dropsubref(row.image)
+		if haskey(grouped, trimmed)
+			push!(grouped[trimmed], row.image)
+		else
+			grouped[trimmed] = [row.image]
+		end
+	end
+	
+	mdstrings = []
+	for k in keys(grouped)
+		thumb = markdownImage(k, iiifsvc, thumbht)
+		
+		params = map(img -> "urn=" * img.urn * "&", grouped[k]) 
+		lnk = ict * join(params,"") 
+		push!(mdstrings, "[$(thumb)]($(lnk))")
+	end
+	Markdown.parse(join(mdstrings, " "))	
+end
+
+# ╔═╡ b913d18e-5c1b-11eb-37d1-6b5f387ae248
+completenessView()
 
 # ╔═╡ aac2d102-5829-11eb-2e89-ad4510c25f28
 md"""
@@ -529,28 +699,39 @@ end
 # Compose string of HTML for a tokenized row including
 # tagging of invalid tokens
 function tokenizeRow(row)
-	ortho = orthographyforurn(textconfig, row.passage)
+
 	citation = "<b>" * passagecomponent(row.passage)  * "</b> "
-	txt = diplnode(row.passage)
-	tokenstart::Array{OrthographicToken} = []
-	tokens = tokenize(ortho, txt,tokenstart)
-	highlighted = map(t -> formatToken(ortho, t.text), tokens)
-	html = join(highlighted, " ")
-	"<p>$(citation) $(html)</p>"
 	
+	ortho = orthographyforurn(textconfig, row.passage)
+	if ortho === nothing
+		"<p class='warn'>⚠️  $(citation). No text configured</p>"
+	else
+
+		txt = normednode(row.passage)
+		tokens = ortho.tokenizer(txt)
+		highlighted = map(t -> formatToken(ortho, t.text), tokens)
+		html = join(highlighted, " ")
+		"<p>$(citation) $(html)</p>"
+	end	
 end
 
 # ╔═╡ aa385f1a-5827-11eb-2319-6f84d3201a7e
+# Orthographic verification:
 # display highlighted tokens for verification
 begin
+	loadem
 	if surface == ""
 		md""
 	else
 		htmlout = []
-		for r in eachrow(surfaceDse)
-			push!(htmlout, tokenizeRow(r))
+		try 
+			for r in eachrow(surfaceDse)
+				push!(htmlout, tokenizeRow(r))
+			end
+			HTML(join(htmlout,"\n"))
+		catch e
+			html"<p class='danger'>Problem with XML edition: see message below</p>"
 		end
-		HTML(join(htmlout,"\n"))
 	end
 end
 
@@ -559,6 +740,7 @@ end
 # ╟─fef09e62-5748-11eb-0944-c983eef98e1b
 # ╟─22980f4c-574b-11eb-171b-170c4a68b30b
 # ╟─7ee4b3a6-573d-11eb-1470-67a241783b23
+# ╟─5eb46332-5a8d-11eb-1bcd-41741622e15b
 # ╟─c9652ac8-5974-11eb-2dd0-654e93786446
 # ╟─925647c6-5974-11eb-1886-1fa2b12684f5
 # ╟─6b4decf8-573b-11eb-3ef3-0196c9bb5b4b
@@ -568,6 +750,10 @@ end
 # ╟─558e587a-573c-11eb-3364-632f0b0703da
 # ╟─e08d5418-573b-11eb-2375-35a717b36a30
 # ╟─c9a3bd8c-573d-11eb-2034-6f608e8bf414
+# ╟─66454380-5bf7-11eb-2634-85d4b4b10243
+# ╟─b5951d46-5c1c-11eb-2af9-116000308410
+# ╟─b913d18e-5c1b-11eb-37d1-6b5f387ae248
+# ╟─77acba86-5bf7-11eb-21ac-bb1d76532e04
 # ╟─f1f5643c-573d-11eb-1fd1-99c111eb523f
 # ╟─00a9347c-573e-11eb-1b25-bb15d56c1b0d
 # ╟─13e8b16c-574c-11eb-13a6-61c5f05dfca2
@@ -605,9 +791,12 @@ end
 # ╟─17d926a4-574b-11eb-1180-9376c363f71c
 # ╟─0da08ada-574b-11eb-3d9a-11226200f537
 # ╟─bf77d456-573d-11eb-05b6-e51fd2be98fe
+# ╟─b0a23a54-5bf8-11eb-07dc-eba00196b4f7
 # ╟─2d218414-573e-11eb-33dc-af1f2df86cf7
+# ╟─4a129b20-5e80-11eb-0b5c-b915b2919db8
 # ╟─bec00462-596a-11eb-1694-076c78f2ba95
 # ╟─4133cbbc-5971-11eb-0bcd-658721f886f1
+# ╟─9fcf6ece-5a89-11eb-2f2a-9d03a433c597
 # ╟─9ac99da0-573c-11eb-080a-aba995c3fbbf
 # ╟─b899d304-574b-11eb-1d50-5b7813ea201e
 # ╟─356f7236-573c-11eb-18b5-2f5a6bfc545d
