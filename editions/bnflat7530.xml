@@ -21,7 +21,29 @@
   </teiHeader>
   <text>
       <body>
-          <ab n="title">TITLE</ab>
+          <ab n="title">notae xxi quae versibus apponi consuerunt.</ab>
+          <ab n="1">obelus</ab>
+          <ab n="2">astericus</ab>
+          <ab n="3">astericus cum obelo</ab>
+          <ab n="4">simplex ductus</ab>
+          <ab n="5">diple</ab>
+          <ab n="6">diple periestigmene</ab>
+          <ab n="7">antisigma</ab>
+          <ab n="8">antisigma cum puncto</ab>
+          <ab n="9">coronis</ab>
+          <ab n="10">diple obelismene</ab>
+          <ab n="11">aversa obelismene</ab>
+          <ab n="12">cerauninion</ab>
+          <ab n="13">obelus ad punctus</ab>
+          <ab n="14">obelus cum aversa</ab>
+          <ab n="15">diple super obelata</ab>
+          <ab n="16">recta et aversa superne obelata</ab>
+          <ab n="17">chi et ro</ab>
+          <ab n="18">φ fi et ro</ab>
+          <ab n="19">anchora superior</ab>
+          <ab n="20">anchora inferior alogus</ab>
+  
+
       </body>
 
   </text>

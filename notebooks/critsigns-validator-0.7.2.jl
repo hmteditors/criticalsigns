@@ -31,6 +31,7 @@ begin
 	Pkg.add("Lycian")
 	Pkg.add("Markdown")
 	Pkg.add("Orthography")
+	Pkg.add("PolytonicGreek")
 	
 
 	using PlutoUI
@@ -46,11 +47,8 @@ begin
 	using Lycian
 	using Markdown
 	using Orthography
+	using PolytonicGreek
 
-	
-	
-	#Pkg.add(url="https://github.com/neelsmith/PolytonicGreek.jl")
-	#using PolytonicGreek
 end
 
 # ╔═╡ 7ee4b3a6-573d-11eb-1470-67a241783b23
