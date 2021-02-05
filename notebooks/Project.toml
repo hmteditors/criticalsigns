@@ -1,5 +1,5 @@
 name = "MID validator notebook"
-version = "0.7.0"
+version = "0.7.2"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
@@ -25,8 +25,8 @@ CitableObject = "0.2"
 CitableTeiReaders = "0.4.1"
 CitableText = "0.4"
 DataFrames = "0.22"
-EditionBuilders = "0.2.2"
-EditorsRepo = "0.6.10"
+EditionBuilders = "0.2.3"
+EditorsRepo = "0.6.11"
 HTTP = "0.9"
 Lycian = "0.1"
 Orthography = "0.4.1"

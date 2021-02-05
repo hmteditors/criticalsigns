@@ -46,11 +46,11 @@ begin
 	using Lycian
 	using Markdown
 	using Orthography
-	
-	
-	Pkg.add(url="https://github.com/neelsmith/PolytonicGreek.jl")
-	using PolytonicGreek
 
+	
+	
+	#Pkg.add(url="https://github.com/neelsmith/PolytonicGreek.jl")
+	#using PolytonicGreek
 end
 
 # ╔═╡ 7ee4b3a6-573d-11eb-1470-67a241783b23
