@@ -18,20 +18,7 @@ end
 begin
 	import Pkg
 	Pkg.activate(".")
-	Pkg.add("PlutoUI")
-	Pkg.add("CitableText")
-	Pkg.add("CitableObject")
-	Pkg.add("CitableImage")
-	Pkg.add("CitableTeiReaders")
-	Pkg.add("CSV")
-	Pkg.add("DataFrames")
-	Pkg.add("EditionBuilders")
-	Pkg.add("EditorsRepo")
-	Pkg.add("HTTP")
-	Pkg.add("Lycian")
-	Pkg.add("Markdown")
-	Pkg.add("Orthography")
-	Pkg.add("PolytonicGreek")
+	Pkg.instantiate()
 	
 
 	using PlutoUI
@@ -48,7 +35,6 @@ begin
 	using Markdown
 	using Orthography
 	using PolytonicGreek
-
 end
 
 # ╔═╡ 7ee4b3a6-573d-11eb-1470-67a241783b23
@@ -728,7 +714,8 @@ begin
 			end
 			HTML(join(htmlout,"\n"))
 		catch e
-			html"<p class='danger'>Problem with XML edition: see message below</p>"
+			msg = "<p class='danger'>Problem with XML edition: $(e)</p>"
+			HTML(msg)
 		end
 	end
 end
