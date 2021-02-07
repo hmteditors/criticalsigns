@@ -290,9 +290,9 @@ version = "0.6.11"
 
 [[PolytonicGreek]]
 deps = ["DocStringExtensions", "Documenter", "Orthography", "Test", "Unicode"]
-git-tree-sha1 = "f5745a8a8231636c5d6bab468222d16957b184c5"
+git-tree-sha1 = "bd05314c0b24513fbb03d540a28858769f5efa44"
 uuid = "72b824a7-2b4a-40fa-944c-ac4f345dc63a"
-version = "0.1.0"
+version = "0.1.1"
 
 [[PooledArrays]]
 deps = ["DataAPI"]
